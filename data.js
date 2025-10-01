@@ -10,14 +10,5 @@ const pairs = [
     { id: 9, picture: '🍑', word: 'Peach' }
 ];
 
-const cards = [];
+export { pairs };
 
-
-for (const pair of pairs) {
-    cards.push(
-        { pairId: pair.id, type: "picture", value: pair.picture },
-        { pairId: pair.id, type: "word", value: pair.word }
-    );
-}
-
-export { cards };

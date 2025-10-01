@@ -1,7 +1,10 @@
-import { cards } from './data.js';;
+import { pairs } from './data.js';
+import { getPairs } from './getPairs.js';
 import { shuffle } from './shuffle.js';
 import { generateGrid } from './grid.js';
 import { attachClickHandler } from './attachClickHandler.js';
+
+const cards = getPairs(pairs);
 
 const shuffledCards = shuffle(cards);
 
