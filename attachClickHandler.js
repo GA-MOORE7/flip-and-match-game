@@ -11,7 +11,7 @@ function attachClickHandler(array, onTwoClicks) {
                 
                 event.target.textContent = obj.value;
                 
-                clickedPairIds.push(obj.pairId);
+                clickedPairIds.push({id, pairId: obj.pairId});
             
                 if (clickedPairIds.length === 2) {
                     onTwoClicks([...clickedPairIds ]);
