@@ -1,12 +1,23 @@
-function checkMatch(pairIds) {
+function checkMatch(clickedCells) {
 
-    const [firstId, secondId] = pairIds;
+    const [first, second] = clickedCells;
 
-    if (firstId === secondId) {
-        console.log("It's a match!", pairIds);
+    if (first.pairId === second.pairId) {
+        console.log("It's a match!", clickedCells);
 
+      setTimeout(() => {
+        document.getElementById(first.id).classList.add("matched");
+        document.getElementById(second.id).classList.add("matched");
+        }, 1000);
+        
     } else {
-        console.log("Not a match.", pairIds);
+        console.log("Not a match.", clickedCells);
+    
+        setTimeout(() => {
+        document.getElementById(first.id).textContent = first.previousContent;
+        document.getElementById(second.id).textContent = second.previousContent;
+        }, 1000);
+
     }
 }
 

@@ -7,7 +7,10 @@ const pairs = [
     { id: 6, picture: '🥝', word: 'Kiwi' },
     { id: 7, picture: '🍉', word: 'Watermelon' },
     { id: 8, picture: '🍒', word: 'Cherry' },
-    { id: 9, picture: '🍑', word: 'Peach' }
+    { id: 9, picture: '🍑', word: 'Peach' },
+    { id: 10, picture: '🍋', word: 'Lemon' },
+    { id: 11, picture: '🍊', word: 'Orange' },
+    { id: 12, picture: '🥭', word: 'Mango' },
 ];
 
 export { pairs };

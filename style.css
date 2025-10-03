@@ -33,10 +33,17 @@ h1 {
     align-items: center;
     justify-content: center;
     background: rgb(189, 224, 237);
+    transition: opacity 0.5s ease;
 }
 
 
 .cell:hover {
     background: rgb(208, 223, 228);
+}
+
+.cell.matched {
+    opacity: 0;
+    pointer-events: none; /* Disable further clicks */
+
 }
 
