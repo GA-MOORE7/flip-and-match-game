@@ -8,7 +8,7 @@ function checkMatch(clickedCells) {
       setTimeout(() => {
         document.getElementById(first.id).classList.add("matched");
         document.getElementById(second.id).classList.add("matched");
-        }, 1000);
+        }, 500);
         
     } else {
         console.log("Not a match.", clickedCells);
@@ -16,7 +16,7 @@ function checkMatch(clickedCells) {
         setTimeout(() => {
         document.getElementById(first.id).textContent = first.previousContent;
         document.getElementById(second.id).textContent = second.previousContent;
-        }, 1000);
+        }, 500);
 
     }
 }
