@@ -5,6 +5,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Jolly+Lodger&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Cabin+Sketch&display=swap');
 
+html {
+    background: radial-gradient(circle, rgb(133, 208, 167), rgb(127, 212, 223), rgb(130, 154, 222));
+}
+
+
 body {
     display: flex;
     flex-direction: column;
@@ -32,29 +37,26 @@ h1 {
     grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* each cell at least 120px */
 }
 
-
-
 .cell {
     width: 200px;
     height: 200px;
-    font-size: 2rem;
+    font-size: 2.25rem;
     border: 1px solid gray;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgb(189, 224, 237);
+    background: rgb(228, 219, 255);
     transition: opacity 0.5s ease;
     border-radius: 10px;
 }
 
-
 .cell:hover {
     background: rgb(208, 223, 228);
+    cursor: pointer;
 }
 
 .cell.matched {
     opacity: 0;
     pointer-events: none; /* Disable further clicks */
-
 }
 

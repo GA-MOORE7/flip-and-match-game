@@ -11,6 +11,10 @@ const pairs = [
     { id: 10, picture: '🍋', word: 'Lemon' },
     { id: 11, picture: '🍊', word: 'Orange' },
     { id: 12, picture: '🥭', word: 'Mango' },
+    { id: 13, picture: '🍈', word: 'Melon' },
+    { id: 14, picture: '🍐', word: 'Pear' },
+    { id: 15, picture: '🍏', word: 'Green Apple' },
+    { id: 16, picture: '🥥', word: 'Coconut' }    
 ];
 
 export { pairs };
