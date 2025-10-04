@@ -9,6 +9,11 @@ function attachClickHandler(array, onTwoClicks) {
             
             if (obj && obj.value) {    
             
+
+                if (clickedCells.length === 1 && clickedCells[0].id === id) {
+                    return;
+                }
+
                 const previousContent = event.target.textContent;
                 event.target.textContent = obj.value;
                 
@@ -18,7 +23,7 @@ function attachClickHandler(array, onTwoClicks) {
                     value: obj.value,
                     previousContent
                 });
-            
+             
                 if (clickedCells.length === 2) {
                     onTwoClicks([...clickedCells ]);
                     clickedCells = [];
