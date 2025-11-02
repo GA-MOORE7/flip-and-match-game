@@ -1,7 +1,7 @@
 function attachClickHandler(array, onTwoClicks) {
     let clickedCells = [];
 
-    document.querySelectorAll("#gridContainer .cell").forEach((el, index) => {
+    document.querySelectorAll("#puzzleGridContainer .cell").forEach((el, index) => {
         el.addEventListener("click", () => {
             const obj = array[index];
             if (!obj) return;

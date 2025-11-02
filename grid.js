@@ -1,6 +1,6 @@
 function generateGrid(arr) {
     const n = arr.length;
-    const container = document.getElementById("gridContainer");
+    const container = document.getElementById("puzzleGridContainer");
     container.innerHTML = "";
 
     // Step 1: Find factor pairs for grid
