@@ -1,16 +1,25 @@
 function getPairs(array) {
-const cards = [];
+  const cards = [];
 
-    for (const pair of array) {
-        cards.push(
-            { pairId: pair.id, type: "picture", value: pair.picture },
-            { pairId: pair.id, type: "word", value: pair.word }
-        );
-    }
+  // For each pair, create a picture card and a word card
+  for (const pair of array) {
+    cards.push(
+      {
+        pairId: pair.id,   // links picture and word together
+        type: "picture",   // this card shows the image
+        value: pair.picture
+      },
+      {
+        pairId: pair.id,   // same pairId for matching
+        type: "word",      // this card shows the word
+        value: pair.word
+      }
+    );
+  }
 
-    return cards;
-
+  return cards;
 }
 
 export { getPairs };
+
 

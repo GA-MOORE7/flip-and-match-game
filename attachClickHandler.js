@@ -1,34 +1,40 @@
 function attachClickHandler(array, onTwoClicks) {
-   
     let clickedCells = [];
 
-    document.querySelectorAll("#gridContainer .cell").forEach(el => {
-        el.addEventListener("click", event => {
-            const id = parseInt(event.target.id, 10);
-            const obj = array[id];
-            
-            if (obj && obj.value) {    
-            
+    document.querySelectorAll("#gridContainer .cell").forEach((el, index) => {
+        el.addEventListener("click", () => {
+            const obj = array[index];
+            if (!obj) return;
 
-                if (clickedCells.length === 1 && clickedCells[0].id === id) {
-                    return;
-                }
+            // Prevent double click on same cell
+            if (clickedCells.length === 1 && clickedCells[0].id === index) return;
 
-                const previousContent = event.target.textContent;
-                event.target.textContent = obj.value;
-                
-                clickedCells.push({
-                    id, 
-                    pairId: obj.pairId,
-                    value: obj.value,
-                    previousContent
-                });
-             
-                if (clickedCells.length === 2) {
-                    onTwoClicks([...clickedCells ]);
-                    clickedCells = [];
-                
-                }
+            // Clear previous number and show content
+            el.innerHTML = "";
+            if (obj.type === "picture") {
+                const img = document.createElement("img");
+                img.src = obj.value;
+                img.alt = "card image";
+                img.style.width = "100%";
+                img.style.height = "100%";
+                el.appendChild(img);
+            } else if (obj.type === "word") {
+                const p = document.createElement("p");
+                p.textContent = obj.value;
+                p.style.textAlign = "center";
+                el.appendChild(p);
+            }
+
+            clickedCells.push({
+                id: index,
+                pairId: obj.pairId,
+                value: obj.value,
+                type: obj.type
+            });
+
+            if (clickedCells.length === 2) {
+                onTwoClicks([...clickedCells]);
+                clickedCells = [];
             }
         });
     });

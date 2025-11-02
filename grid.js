@@ -1,11 +1,9 @@
 function generateGrid(arr) {
-
     const n = arr.length;
-
     const container = document.getElementById("gridContainer");
     container.innerHTML = "";
 
-    // Step 1: Find factor pairs
+    // Step 1: Find factor pairs for grid
     const factors = [];
     for (let i = 1; i <= Math.sqrt(n); i++) {
         if (n % i === 0) {
@@ -21,37 +19,33 @@ function generateGrid(arr) {
         const bestDiff = Math.abs(best[0] - best[1]);
         return diff < bestDiff ? pair : best;
     });
-    
-// Step 3: Set CSS class and dynamic vars
+
+    // Step 3: Set CSS grid
     container.classList.add("grid");
+    container.style.display = "grid";
     container.style.gridTemplateColumns = `repeat(${cols}, minmax(80px, 1fr))`;
     container.style.gridTemplateRows = `repeat(${rows}, 1fr)`;
+    container.style.gap = "10px";
 
-// Step 4: Build the grid (preserve objects or values)
-    const grid = [];
-    let index = 0;
+    // Step 4: Create face-down numbered cells and store the number
+    arr.forEach((card, index) => {
+        const cell = document.createElement("div");
+        cell.classList.add("cell", "face-down");
+        cell.id = index;
+        cell.dataset.pairId = card.pairId;
+        cell.dataset.type = card.type;
 
-    for (let r = 0; r < rows; r++) {
-        const row = [];
-        for (let c = 0; c < cols; c++) {
-            const cellNumber = index + 1;
-            row.push(cellNumber);
+        // Store the original number in dataset
+        cell.dataset.number = (index + 1).toString();
 
-            // Create DOM element
-            const cell = document.createElement("div");
-            cell.classList.add("cell");
-            cell.id = index;
-            cell.textContent = cellNumber;
-            container.appendChild(cell);
+        // Show the card number initially
+        cell.textContent = index + 1;
 
-            index++;
+        container.appendChild(cell);
+    });
 
-        }
-        grid.push(row);
-    }
-
-    return { rows, cols, grid };
-
+    return { rows, cols };
 }
 
-export { generateGrid }
+export { generateGrid };
+

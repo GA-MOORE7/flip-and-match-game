@@ -1,21 +1,35 @@
-const pairs = [
-    { id: 1, picture: '🍎', word: 'Apple' },
-    { id: 2, picture: '🍌', word: 'Banana' },
-    { id: 3, picture: '🍇', word: 'Grapes' },
-    { id: 4, picture: '🍓', word: 'Strawberry' },
-    { id: 5, picture: '🍍', word: 'Pineapple' },
-    { id: 6, picture: '🥝', word: 'Kiwi' },
-    { id: 7, picture: '🍉', word: 'Watermelon' },
-    { id: 8, picture: '🍒', word: 'Cherry' },
-    { id: 9, picture: '🍑', word: 'Peach' },
-    { id: 10, picture: '🍋', word: 'Lemon' },
-    { id: 11, picture: '🍊', word: 'Orange' },
-    { id: 12, picture: '🥭', word: 'Mango' },
-    { id: 13, picture: '🍈', word: 'Melon' },
-    { id: 14, picture: '🍐', word: 'Pear' },
-    { id: 15, picture: '🍏', word: 'Green Apple' },
-    { id: 16, picture: '🥥', word: 'Coconut' }    
-];
+// data.js
+const data = {
+  items: [
+    {
+      _id: "69056ede5cfa279afa6bcc99",
+      word: "earth",
+      imageUrl: "https://res.cloudinary.com/dmybwa6i7/image/upload/v1737383738/flip-match/Hello!/hhoyzizkhqfmflyy2dgf.png"
+    },
+    {
+      _id: "69056ede5cfa279afa6bcc9a",
+      word: "tool",
+      imageUrl: "https://res.cloudinary.com/dmybwa6i7/image/upload/v1737383740/flip-match/Hello!/petnzjoh4js1r682a6ln.png"
+    },
+    {
+      _id: "69056ede5cfa279afa6bcc9b",
+      word: "planet",
+      imageUrl: "https://res.cloudinary.com/dmybwa6i7/image/upload/v1737383740/flip-match/Hello!/bqhmr2n7xmlczyczsqtx.png"
+    }
+  ]
+};
 
-export { pairs };
+// Convert MongoDB-like object to pairs array
+function convertToPairs(dataObj) {
+  if (!dataObj || !dataObj.items) return [];
+  return dataObj.items.map(item => ({
+    id: item._id,
+    picture: item.imageUrl,
+    word: item.word
+  }));
+}
+
+export const pairs = convertToPairs(data);
+
+
 
